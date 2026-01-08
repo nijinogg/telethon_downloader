@@ -12,6 +12,7 @@ class YouTubeDownloader:
         try:
             self.logger.info(f"Fetching video info for URL: {url}")
             ydl_opts = {
+                'all-subs': True,
                 'extract_flat': True,
                 'skip_download': True,
             }
