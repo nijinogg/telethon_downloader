@@ -12,7 +12,6 @@ class YouTubeDownloader:
         try:
             self.logger.info(f"Fetching video info for URL: {url}")
             ydl_opts = {
-                'all-subs': True,
                 'extract_flat': True,
                 'skip_download': True,
             }
@@ -33,6 +32,7 @@ class YouTubeDownloader:
             if download_type == 'video':
                 path = self.config.YOUTUBE_VIDEO_FOLDER
                 ydl_opts = {
+                    'all-subs': '',
                     'format': self.config.YOUTUBE_FORMAT_VIDEO,
                     'outtmpl': os.path.join(path, '%(uploader)s', '%(title)s.%(ext)s'),
                     'progress_hooks': [progress_hook],
